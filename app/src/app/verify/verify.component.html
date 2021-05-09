@@ -62,7 +62,7 @@
                     </div>
                     
                     <div class="form-group">
-                        <button class="btn btn-primary">Get OTP</button> &nbsp;
+                        <button (click)="onSubmit()" [disabled]="!regForm.valid" class="btn btn-primary">Get OTP</button> &nbsp;
                         <button class="btn btn-primary">Resend OTP</button>
                     </div>
 

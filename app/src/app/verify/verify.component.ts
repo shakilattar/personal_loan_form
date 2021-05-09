@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-verify',
@@ -16,12 +16,12 @@ export class VerifyComponent implements OnInit {
 
   ngOnInit(): void {
     this.regForm = this.formbuilder.group({
-      city:['', Validators.required],
-      panNumber:['', [Validators.required, Validators.maxLength(10)]],
-      fullName:['', [Validators.required, Validators.maxLength(140)]],
-      email:['', [Validators.required, Validators.email, Validators.maxLength(255)]],
-      mobileNumber:['', [Validators.required, Validators.minLength(10)]],
-      otp:['', [Validators.required, Validators.minLength(4)]]
+      'city': new FormControl('', [Validators.required]) ,
+      'panNumber': new FormControl('', [Validators.required, Validators.maxLength(10), Validators.minLength(10)]),
+      'fullName': new FormControl('', [Validators.required, Validators.maxLength(140)]),
+      'email': new FormControl('', [Validators.required, Validators.email, Validators.maxLength(255)]),
+      'mobileNumber': new FormControl('', [Validators.required, Validators.maxLength(10), Validators.minLength(10)]),
+      'otp': new FormControl('', [Validators.required, Validators.maxLength(4), Validators.minLength(4)])
     });
   }
 
