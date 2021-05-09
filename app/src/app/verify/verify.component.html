@@ -5,31 +5,62 @@
         <div class="row">
             <div class="col-md-6">
                 <h3></h3>
-                <form>
+                <form [formGroup]="regForm" (ngSubmit)=onSubmit()>
+
                     <div class="form-group">
                         <label>City</label>
-                        <input type="text" class="form-control" placeholder="Pune, Mumbai">
+                        <input type="text" formControlName="city" class="form-control" 
+                        placeholder="Pune, Mumbai" [ngClass]="{ 'is-invalid': submitted && formData.city.errors }" />
+                        <div *ngIf="submitted && formData.city.errors" class="invalid-feedback">
+                            <div *ngIf="formData.city.errors.required">City is required</div>
+                        </div>
                     </div>
+
                     <div class="form-group">
                         <label>PAN Number</label>
-                        <input type="text" class="form-control" placeholder="PAN Number">
+                        <input type="text" formControlName="panNumber" class="form-control" 
+                        placeholder="PAN Number" [ngClass]="{ 'is-invalid': submitted && formData.panNumber.errors }" />
+                        <div *ngIf="submitted && formData.panNumber.errors" class="invalid-feedback">
+                            <div *ngIf="formData.panNumber.errors.required">PAN Number is required</div>
+                        </div>
                     </div>
+
                     <div class="form-group">
                         <label>Full Name</label>
-                        <input type="text" class="form-control" placeholder="Bill Gates">
+                        <input type="text" formControlName="fullName" class="form-control" 
+                        placeholder="Bill Gates" [ngClass]="{ 'is-invalid': submitted && formData.fullName.errors }" />
+                        <div *ngIf="submitted && formData.fullName.errors" class="invalid-feedback">
+                            <div *ngIf="formData.fullName.errors.required">Full Name is required</div>
+                        </div>
                     </div>
+                    
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="text" class="form-control" placeholder="bill@outlook.com">
+                        <input type="email" formControlName="email" class="form-control" 
+                        placeholder="bill@outlook.com" [ngClass]="{ 'is-invalid': submitted && formData.email.errors }" />
+                        <div *ngIf="submitted && formData.email.errors" class="invalid-feedback">
+                            <div *ngIf="formData.email.errors.required">Email is required</div>
+                        </div>
                     </div>
+                    
                     <div class="form-group">
                         <label>Mobile Number</label>
-                        <input type="number" class="form-control" placeholder="98765XXXXX">
+                        <input type="number" formControlName="mobileNumber" class="form-control" 
+                        matInput placeholder="+91 98765XXXXX" [ngClass]="{ 'is-invalid': submitted && formData.mobileNumber.errors }" />
+                        <div *ngIf="submitted && formData.mobileNumber.errors" class="invalid-feedback">
+                            <div *ngIf="formData.mobileNumber.errors.required">Mobile Number is required</div>
+                        </div>
                     </div>                    
+                    
                     <div class="form-group">
                         <label>OTP</label>
-                        <input type="password" class="form-control" placeholder="">
+                        <input type="number" formControlName="otp" class="form-control" 
+                        placeholder="****" [ngClass]="{ 'is-invalid': submitted && formData.otp.errors }" />
+                        <div *ngIf="submitted && formData.otp.errors" class="invalid-feedback">
+                            <div *ngIf="formData.otp.errors.required">OTP is required</div>
+                        </div>
                     </div>
+                    
                     <div class="form-group">
                         <button class="btn btn-primary">Get OTP</button> &nbsp;
                         <button class="btn btn-primary">Resend OTP</button>
