@@ -63,9 +63,11 @@
                     
                     <div class="form-group">
                         <button (click)="onSubmit()" [disabled]="!regForm.valid" class="btn btn-primary">Get OTP</button> &nbsp;
+                    </div>
+                    
+                    <div class="form-group" ng-app="Myapp" ng-controller="Mycontroller" ng-show="divhide">
                         <button class="btn btn-primary">Resend OTP</button>
                     </div>
-
                 </form>
             </div>
         </div>

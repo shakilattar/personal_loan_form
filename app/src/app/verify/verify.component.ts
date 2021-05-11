@@ -20,8 +20,8 @@ export class VerifyComponent implements OnInit {
       'panNumber': new FormControl('', [Validators.required, Validators.maxLength(10), Validators.minLength(10)]),
       'fullName': new FormControl('', [Validators.required, Validators.maxLength(140)]),
       'email': new FormControl('', [Validators.required, Validators.email, Validators.maxLength(255)]),
-      'mobileNumber': new FormControl('', [Validators.required, Validators.maxLength(10), Validators.minLength(10)]),
-      'otp': new FormControl('', [Validators.required, Validators.maxLength(4), Validators.minLength(4)])
+      'mobileNumber': new FormControl('', [Validators.required, Validators.maxLength(10)]),
+      'otp': new FormControl('', [Validators.required, Validators.maxLength(4)])
     });
   }
 
